@@ -1,32 +1,52 @@
-*{
+* {
     box-sizing: border-box;
 }
-body{
+
+body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
     font-size: 0px;
 }
 
-.hero{
+.hero {
     background-color: orange;
     height: 100vh;
     position: relative;
 }
 
-.hero .hero__img{
+.hero .hero__img {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-.hero .hero__title{
+.hero .wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero .hero__title {
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
     font-size: 3rem;
     color: white;
     margin: 0px;
     line-height: 1;
 
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
+}
+
+.hero__subtitle {
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
+    font-size: 3rem;
+    color: white;
+    margin: 0px;
+    line-height: 1;
+
+    /* transform: translate(-50%, -50%); */
 }
