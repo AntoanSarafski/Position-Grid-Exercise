@@ -1,8 +1,9 @@
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.designer-card{
+.designer-card {
+
     width: 400px;
     border-radius: 6px;
     overflow: hidden;
@@ -10,21 +11,23 @@ body{
     color: white;
 }
 
-.designer-card .img-background{
+.designer-card .img-background {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 300ms ease-in-out;
 }
 
-.designer-card .content{
+.designer-card .content {
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
     padding: 12px;
+    z-index: 2;
 }
 
-.designer-card .meta-info .writer{
+.designer-card .meta-info .writer {
     /* Make width 100% of our container /.designer-card .meta-info{ grid-template-columns/ !!! */
     width: 100%;
     /* Make aspect ratio to 1/1 for perfect circle. */
@@ -33,7 +36,7 @@ body{
     overflow: hidden;
 }
 
-.designer-card .meta-info .writer img{
+.designer-card .meta-info .writer img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -41,7 +44,7 @@ body{
 
 /* Make new layer for better contrast */
 
-.designer-card::before{
+.designer-card::before {
     content: '';
     width: 100%;
     height: 100%;
@@ -50,25 +53,150 @@ body{
     left: 0;
     background-color: black;
     opacity: 0.3;
+    z-index: 1;
 }
 
 /* Get in our content and make step by step stylization */
 
-.designer-card .content .tag{
+.designer-card .content .tag {
     font-size: 14px;
     color: orange;
 }
 
-.designer-card .content .title{
+.designer-card .content .title {
     font-size: 18px;
     margin-bottom: 12px;
 }
 
 /* How to make last three elements in one row !!! */
 
-.designer-card .meta-info{
+.designer-card .meta-info {
     display: grid;
     /* Make sizes of our three elements in the grid ! */
     grid-template-columns: 20px 2fr 3fr;
     gap: 6px;
 }
+
+/* SET HOVER EFECT HERE WITH TRANSFORM */
+.designer-card:hover .img-background{
+    transform: scale(1.3);
+    /* Here we lose our contrast and must set z-index 1
+    in our PSEUDO ELEMENT -> .designer-card::before{} and z-index 2
+    to our content (.designer-card .content{}) */
+
+}
+
+/* STARTING WRITE CSS FOR THE SECOND CARD ! */
+
+.second-card .img-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Make second-card smaller with correct ratio */
+
+.second-card {
+    /* ADDING VALUES FROM .designer-card{} !!! */
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    color: white;
+    /* Deleting width and overwrite it !*/
+    width: 300px;
+    /* Set correct ratio. */
+    aspect-ratio: 1/1.5;
+}
+
+/* WORK WITH second-card.Content! Our container for meta-info
+(lists,title and description */
+.second-card .content {
+    /* We use position: absolute; and set position 
+    to get our content container in front of the picture(.second-card .img-background)! ! ! */
+    position: absolute;
+    /* we set bottom value:-202px(size of our description with added 10px margin) 
+    for hiding the description. Now we can not see description cuz our container-
+    (.second-card{}) is with overflow:hidden ! */
+    bottom: -202px;
+    left: 0;
+    width: 100%;
+    padding: 12px;
+
+    transition: bottom 300ms linear;
+
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+        180deg, 
+        rgba(2, 0, 36, 0) 0%, 
+        rgba(2, 0, 36, 0.7098991297468354) 30%, 
+        rgba(2, 0, 36, 1) 60%
+        );
+
+}
+
+
+/* We will make ONLY LISTS(.second-card .meta) and
+OUR TITLE (.second-card .title) visible BEFORE we hovered the card !
+Then we will make the description(.second-card .desprition) popping up with HOVER.
+We will make gradiant color around our card with cssgradient.io ! */
+
+/* 1. We comment our desription(.second-card .desprition) */
+
+/* 2. Making gradiant color around our card with cssgradient.io and put the link
+in our(.second-card .content) upper in our css. ! */
+
+/* 3. We make a grid in our meta and we split the information(Our three lists)
+ into 3 equal parts and make some gap(2px) , cuz we want ALWEYS
+  to have minimal distance between our elements. 
+ We make it with grid, cuz we dont learn FLEX :(( .  */
+
+.second-card .content .meta{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/*  Make title bigger.  */
+.second-card .content .title{
+    font-size: 22px;
+    text-align: center;
+}
+
+/* Now when we uncomment our description, the meta and title moving up . */
+
+
+.second-card .content .description{
+    /* We set original value of the height of our description. */
+    height: 192px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+/* For hiding the description we can set TOP of description element
+to be in the BOTTOM of the container(.second-card .content) with top:0;
+BUT we set the container(.second-card .content) with bottom: -202px(size 
+of our description with added 10px margin) UPPER IN OUR CSS !
+*/
+
+/* NOW WE WILL SET OUR HOVER EFFECT 
+WITH CHANGING THE BOTTOM value of our container(.second-card .content) 
+WHEN our cursur is top of the FULL container with this CSS ! 
+FIRST WE PUT TARGET:HOVER and after that element(.content)  */
+
+/* .second-card:hover .content{
+    bottom: 0px;
+} */
+
+/* We can change the effect of hover only to their childs and make it in that way */
+.second-card .content:hover{
+    bottom: 0px;
+}
+
+/* Now we put some transition in our container(.second-card .content) */
+
+/* We will make DESIGNED CARD(FIRST CARD) bigger when we hover on it.
+We must see in -> .designer-card:hover .img-background{}.
+After that we put transition in our element ! -> .designed-card .img-background{}*/
+
