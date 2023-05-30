@@ -65,7 +65,6 @@ ul>li:not(:last-child) {
 }
 
 blockquote {
-    display: inline-block;
     font-style: italic;
     color: #928f8d;
     position: absolute;
