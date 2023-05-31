@@ -4,7 +4,7 @@ body {
 
 .designer-card {
 
-    width: 400px;
+    max-width: 700px;
     border-radius: 6px;
     overflow: hidden;
     position: relative;
@@ -108,7 +108,7 @@ body {
     position: relative;
     color: white;
     /* Deleting width and overwrite it !*/
-    width: 300px;
+    max-width: 300px;
     /* Set correct ratio. */
     aspect-ratio: 1/1.5;
 }
@@ -299,4 +299,38 @@ SIMPLE GRID
 }
 #areas-grid .item6{
     grid-area: large;
+}
+
+/* CARDS GRID */
+
+#cards-grid{
+    width: 1000px;
+    display: grid;
+    /* Make 6 columns for better positioning */
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    grid-template-areas: 
+    "land1 land1 land1 land1 port1 port2"
+    ". . land2 land2 land2 land2";
+}
+
+/* HOW TO FIX IMAGE OF SECOND-CARD */
+#cards-grid .second-card{
+    aspect-ratio: auto;
+    height: 100%;
+}
+
+#cards-grid .landscape:first-of-type{
+    grid-area: land1;
+}
+#cards-grid .landscape:last-of-type{
+    grid-area: land2;
+}
+
+#cards-grid .portrait:first-of-type{
+    grid-area: port1;
+}
+
+#cards-grid .portrait:last-of-type{
+    grid-area: port2;
 }
