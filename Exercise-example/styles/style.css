@@ -204,3 +204,26 @@ FIRST WE PUT TARGET:HOVER and after that element(.content)  */
 /* We will make DESIGNED CARD(FIRST CARD) bigger when we hover on it.
 We must see the transition in -> .designer-card:hover .img-background{}. */
 
+
+
+/* -------------------- 
+SIMPLE GRID 
+-----------------------*/
+
+#simple-grid{
+    margin-top: 32px; 
+    padding: 12px;
+    /* make border to see our container */
+    border: 1px dashed black;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    gap: 12px;
+}
+
+#simple-grid .item{
+    background-color: orange;
+    border: 8px;
+    text-align: center;
+}
