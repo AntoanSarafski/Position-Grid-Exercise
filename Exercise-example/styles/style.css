@@ -54,6 +54,7 @@ body {
     background-color: black;
     opacity: 0.3;
     z-index: 1;
+    transition: opacity 300ms ease-in-out;
 }
 
 /* Get in our content and make step by step stylization */
@@ -84,6 +85,10 @@ body {
     in our PSEUDO ELEMENT -> .designer-card::before{} and z-index 2
     to our content (.designer-card .content{}) */
 
+}
+/* Turn on our pseudo element when we hover and make image darker ! */
+.designer-card:hover::before{
+    opacity: 0.6;
 }
 
 /* STARTING WRITE CSS FOR THE SECOND CARD ! */
@@ -197,6 +202,5 @@ FIRST WE PUT TARGET:HOVER and after that element(.content)  */
 /* Now we put some transition in our container(.second-card .content) */
 
 /* We will make DESIGNED CARD(FIRST CARD) bigger when we hover on it.
-We must see in -> .designer-card:hover .img-background{}.
-After that we put transition in our element ! -> .designed-card .img-background{}*/
+We must see the transition in -> .designer-card:hover .img-background{}. */
 
