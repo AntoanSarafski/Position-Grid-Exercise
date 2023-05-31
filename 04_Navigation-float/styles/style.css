@@ -85,8 +85,8 @@ p {
 }
 
 .author-name {
+    display: inline-block;
     position: absolute;
-    right: 20px
 }
 
 
