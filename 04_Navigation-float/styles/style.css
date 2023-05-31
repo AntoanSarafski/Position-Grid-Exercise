@@ -12,17 +12,6 @@ main {
     gap: 5%;
 }
 
-/* main article{
-    display: inline-block;
-    width: 65%;
-    margin-right: 5%;
-    position: relative;
-}
-main .category-container{
-    display: inline-block;
-    width: 28%;
-    vertical-align: top;
-} */
 .first-img {
     float: right;
     box-shadow: 0px 0px 10px 10px rgb(0, 0, 0, 0.25);
@@ -67,13 +56,13 @@ ul>li:not(:last-child) {
 blockquote {
     font-style: italic;
     color: #928f8d;
-    position: absolute;
-    left: 700px;
     width: 240px;
     bottom: 70px;
     border-left: 4px solid #dddddd;
     padding-left: 26px;
-    float: left;
+    float: right;
+    margin-left: 16px;
+    margin-top: 16px;
 }
 
 h1,
@@ -99,3 +88,16 @@ p {
     position: absolute;
     right: 20px
 }
+
+
+/* main article{
+    display: inline-block;
+    width: 65%;
+    margin-right: 5%;
+    position: relative;
+}
+main .category-container{
+    display: inline-block;
+    width: 28%;
+    vertical-align: top;
+} */
